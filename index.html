@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light" data-color-theme="blue">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan Kas Kelas 8-3</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js for pie charts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Header with time and server status -->
+    <div class="header">
+      <div class="time-server">
+        <span id="current-time" class="time">00:00:00</span>
+        <div class="server-status">
+          <span id="server-icon" class="server-icon active"></span>
+          <span class="server-text">Server <span id="server-status-text">Aktif</span></span>
+        </div>
+      </div>
+
+      <!-- Settings dropdown -->
+      <div class="settings-dropdown">
+        <button id="settings-button" class="settings-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="settings-icon">
+            <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+        </button>
+        <div id="settings-menu" class="settings-menu hidden">
+          <div class="settings-header">Pengaturan</div>
+          <div class="settings-divider"></div>
+          <div class="settings-label">Tema</div>
+          
+          <div class="settings-divider"></div>
+          <div class="settings-label">Mode</div>
+          <div class="theme-mode-options">
+            <div class="theme-option" data-theme="light">
+              <span>Terang</span>
+              <span class="check-icon light-check"></span>
+            </div>
+            <div class="theme-option" data-theme="dark">
+              <span>Gelap</span>
+              <span class="check-icon dark-check"></span>
+            </div>
+            <div class="theme-option" data-theme="system">
+              <span>Sistem</span>
+              <span class="check-icon system-check"></span>
+            </div>
+          </div>
+          
+          <div class="settings-divider"></div>
+          <div class="settings-label">Warna</div>
+          <div class="theme-color-options">
+            <button class="color-button" data-color="blue">
+              <span class="color-circle blue"></span>
+              Biru
+            </button>
+            <button class="color-button" data-color="green">
+              <span class="color-circle green"></span>
+              Hijau
+            </button>
+            <button class="color-button" data-color="purple">
+              <span class="color-circle purple"></span>
+              Ungu
+            </button>
+            <button class="color-button" data-color="red">
+              <span class="color-circle red"></span>
+              Merah
+            </button>
+            <button class="color-button" data-color="yellow">
+              <span class="color-circle yellow"></span>
+              Kuning
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="content">
+      <div class="card main-card">
+        <div class="card-header">
+          <h2 class="card-title">Laporan Uang Kas Kelas 8-3</h2>
+          <p class="card-description">Laporan keuangan terkini per <span id="current-date">01/01/2023</span></p>
+        </div>
+        <div class="card-content">
+          <div class="summary-cards">
+            <div class="card summary-card">
+              <div class="card-header small">
+                <h3 class="card-title small">Total Kas</h3>
+              </div>
+              <div class="card-content">
+                <div class="amount">Rp 1.500</div>
+              </div>
+            </div>
+            <div class="card summary-card">
+              <div class="card-header small">
+                <h3 class="card-title small">Pemasukan</h3>
+              </div>
+              <div class="card-content">
+                <div class="amount income">Rp 1.500</div>
+              </div>
+            </div>
+            <div class="card summary-card">
+              <div class="card-header small">
+                <h3 class="card-title small">Pengeluaran</h3>
+              </div>
+              <div class="card-content">
+                <div class="amount expense">Rp.? NO DATA-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tabs-list">
+          <button class="tab-trigger active" data-tab="statistics">Statistik</button>
+          <button class="tab-trigger" data-tab="faq">FAQ</button>
+        </div>
+        
+        <div class="tab-content active" id="statistics-tab">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Statistik Keuangan</h2>
+              <p class="card-description">Visualisasi pemasukan dan pengeluaran kas kelas</p>
+            </div>
+            <div class="card-content">
+              <div class="charts">
+                <div class="chart-container">
+                  <h3 class="chart-title">Pemasukan</h3>
+                  <div class="chart-wrapper">
+                    <canvas id="income-chart"></canvas>
+                    <div class="no-data-message">Tidak ada data pemasukan</div>
+                  </div>
+                </div>
+                <div class="chart-container">
+                  <h3 class="chart-title">Pengeluaran</h3>
+                  <div class="chart-wrapper">
+                    <canvas id="expense-chart"></canvas>
+                    <div class="no-data-message">Tidak ada data pengeluaran</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tab-content" id="faq-tab">
+          <div class="card">
+            <div class="card-header">
+              <h2 class="card-title">Pertanyaan Umum</h2>
+              <p class="card-description">Informasi tentang pengelolaan kas kelas</p>
+            </div>
+            <div class="card-content">
+              <div class="accordion">
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    COMING SOON
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon">
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    COMING SOON
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                   COMING SOON
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon">
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    COMING SOON
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    Siapa yang mengelola uang kas?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon">
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    Uang kas dikelola oleh bendahara kelas yang dipilih melalui musyawarah kelas.
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <button class="accordion-trigger">
+                    Untuk apa saja uang kas digunakan?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="accordion-icon">
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+                  <div class="accordion-content">
+                    Uang kas digunakan untuk keperluan kelas seperti membeli alat kebersihan, perlengkapan kelas.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
